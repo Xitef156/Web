@@ -2,7 +2,7 @@
   "dependencies": {
     "fs": "^0.0.1-security",
     "express": "^4.17.1",
-    "path": "0.12.7"
+    "discord.js": "13.3.0"
   },
   "scripts": {
     "start": "node index.js"
