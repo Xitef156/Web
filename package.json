@@ -2,6 +2,7 @@
   "dependencies": {
     "minecraft-protocol": "^1.30.0",
     "minecraft-data": "^2.100.1",
+    "express": "^4.17.2"
   },
   "scripts": {
     "start": "node index.js"
