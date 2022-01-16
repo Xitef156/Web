@@ -7,7 +7,7 @@ var path = require("path");
 var file = './index.html'
 app.use(express.static(__dirname));
 app.get('/', (req, res) => {
-  res.send(path.resolve(file));
+  res.send(__dirname+ file);
 });
 
 app.listen(port, () => {
