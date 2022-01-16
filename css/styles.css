@@ -1,0 +1,55 @@
+nav ul li{
+	display: inline-block;
+	list-style-type: none;
+}
+nav ul li a{
+	color: white;
+	text-decoration: none;
+	padding: 5px;
+	background-color: blue;
+}
+nav ul li:hover a{
+	color: red;
+	text-decoration: none;
+	padding: 5px;
+	background-color: blue;
+}
+p{
+	color:#FF00FF;
+	font: small-caps bold 24px/1 sans-serif;
+}
+a{
+	color:#FF00FF;
+	font: small-caps bold 24px/1 sans-serif;
+}
+
+h1{
+	color:#FF00FF;
+	font: small-caps bold 24px/1 sans-serif;
+}
+
+body{
+	background-image: url("img/background.png");
+	background-size: 10
+}
+div#content div{
+	display: inline-block;
+	width: 20%
+}
+div#content div.topbox{
+	margin: 50px
+	width: 10%;
+	vertical-align: all;
+	background-color: red;
+}
+div#content div.rightbox{
+	vertical-align: all;
+	background-color: blue;
+}
+div#content div.leftbox{
+	vertical-align: all;
+	background-color: red;
+}
+img{
+	margin: 100px;
+}
