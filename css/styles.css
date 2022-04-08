@@ -1,29 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
-p,div,button{
+p,div,button,select,option{
 	font-family: 'Electrolize', sans-serif;
+	font-size: 50px;
 }
 
-p{
-	color:#FF00FF;
-	font-size: 50px;
+.text{
+	color:#5900ff;
+	-webkit-text-stroke: #000000 0.5px;
+	font-size: 30px;
 }
 
 .title{
-	float: left;
-	font-family: 'Electrolize', sans-serif;
-	font-size: 50px;
+	float: left; 
+	border-radius: 10px; 
+	width: 500px; 
+	height: 500px;
 	margin-top: 50px;
-	margin-left: 100px;
+	margin-left: 50px;
+	text-decoration: none;
+	display: flex;
+	font-size: larger;
+	text-shadow: 0 0 1em #000000, 0 0 0.2em #2b2b2b;
+	color: azure;
+	background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
+	-webkit-background-clip: text;
+	-webkit-text-stroke: 6px transparent;
 }
 
-.next{
+.next,.previous{
+	float: left;
 	background-color: #00000018;
-	border-color: rgb(255, 0, 0);
+	border-color: red;
 	border-radius: 10px;
 	font-size: 50px;
+	margin-top: 250px;
+	margin-left: 30px;
 }
 
-.next:hover{
+.next:hover,.previous:hover{
 	background-color: #ffffff;
 	border-color: aqua;
 	cursor: pointer;
