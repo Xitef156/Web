@@ -8,27 +8,122 @@
 </head>
 <body>
 	<script>
-		function Next(Class){
-			var txt = document.getElementById(Class)
-			if(Class == "lesson"){
-				txt.innerHTML = "text2 ; Préviens à Alexis sur Instagram que ça fonctionne bien"
+		function Change(Class,type){
+			var Items = document.getElementsByClassName(Class)
+			var Select = document.getElementById('select')
+			var Vid = document.getElementById('video')
+			var txt = Items.item(0)
+			const json = {
+				"text": {
+					"one": "Tout d'abord la transformation physique<br>Il s'agit de réaliser un changement d'état sans changer la matière, il y a 6 changements à connaître : <br><br>Solidification S->L ; Fusion L->S ; Liquéfaction G->L ; Vaporisation L->G ; Sublimation S->G ; Condensation G->S<br><br> Il y a égalemment les termes Exothermique et Endothermique, s'ils sont Endo (Q > 0), ils reçoient de la chaleur (De Solide à Gazeux) et à l'inverse ils sont Exo",
+					"two": "Puis la transformation chimique, il s'agit d'un changement, des atomes/ions à des molécules/ions que l'on peut retrouvé dans une équation bilan <br><br>Na+ (Sodium) + Cl- (Chlore) --> NaCl (Sel)<br><br>D'où le nom équation, il y doit y avoir la même chose à gauche (réactifs) et à droite (produits)<br><br> Faux : Zn + Mg --> Zn2 + Mg<br><br> il manque 1 atome de Zinc donc il faut le multiplier par 2<br>2Zn + Mg --> Zn2 + Mg",
+					"three": "Enfin, les mols, c'est une portion d'une matière. Vous pouvez pensez cela en bouteille par exemple (Il faut 100 bouteilles pour 1 bain), cela sert pour mieux représenter cette masse<br><br>mol(H) = masse(H) en g / Masse Molaire (H) en g/mol = 1,00794 g / 1<br> Masse molaire = A = Nombre de masse d'un atome = Neutrons + Protons<br><br>il se peut que des réactifs se consomment plus vite, ils se nomment 'Réactif Limitant'et les autres 'Réactif Excès' sinon on est dans des proportions stoechiométriques"
+				}
+			}
+			if(Class == "text"){
+				if(type == `next`) {
+					if(txt.id == 'Two') { 
+						txt.innerHTML = json.text.three
+						txt.id = 'Three'
+						Vid.hidden = false
+						Select.hidden = true
+					}
+					else if(txt.id == 'One') {
+						txt.innerHTML = json.text.two
+						txt.id = 'Two'
+						Vid.hidden = true
+						Select.hidden = true
+					}
+				} else {
+					if(txt.id == 'Two') { 
+						txt.innerHTML = json.text.one
+						txt.id = 'One'
+						Vid.hidden = true
+						Select.hidden = false
+					}
+					else if(txt.id == 'Three') { 
+						txt.innerHTML = json.text.two
+						txt.id = 'Two'
+						Vid.hidden = true
+						Select.hidden = true
+					}
+				}
+			}
+		}
+		function Selector(){
+			var state = document.getElementById('state')
+			var thermic = document.getElementById('thermic')
+			var example = document.getElementById('example')
+			var First = document.getElementById('first').value
+			var Second = document.getElementById('second').value
+			if(First == 1 && Second == 2) {
+				state.innerHTML = 'Fusion'
+				thermic.innerHTML = 'Endothermique'
+				example.innerHTML = 'Glaçon qui fond ; Besoin de chaleur'
+			}
+			else if(First == 1 && Second == 3) {
+				state.innerHTML = 'Sublimation'
+				thermic.innerHTML = 'Endothermique'
+				example.innerHTML = "Glace qui s'évapore ; Besoin de chaleur"
+			}
+			else if(First == 2 && Second == 1) {
+				state.innerHTML = 'Solidification'
+				thermic.innerHTML = 'Exothermique'
+				example.innerHTML = 'Eau qui gèle ; Rejet de chaleur'
+			}
+			else if(First == 2 && Second == 3) {
+				state.innerHTML = 'Vaporisation'
+				thermic.innerHTML = 'Endothermique'
+				example.innerHTML = 'Eau qui boue ; Besoin de chaleur'
+			}
+			else if(First == 3 && Second == 1) {
+				state.innerHTML = 'Condensation'
+				thermic.innerHTML = 'Exothermique'
+				example.innerHTML = "Eau en Glace au contact d'une vitre froide ; Besoin de chaleur"
+			}
+			else if(First == 3 && Second == 2) {
+				state.innerHTML = 'Liquéfaction'
+				thermic.innerHTML = 'Exothermique'
+				example.innerHTML = "Refroidissant de la vapeur d'eau à -160°C Pour avoir de l'eau liquide ; Besoin de chaleur"
+			} else {
+				state.innerHTML = "Aucun changement d'état"
+				thermic.innerHTML = 'Rien'
+				example.innerHTML = "Aucun exemple"
 			}
 		}
 	</script>
 <img style="text-align:center;margin:auto;display:flex" src="img/Logo 2°8.png" width="500">
 <div>
-	<div class="title">
+	<div class="title" id="test">
 		Physique-Chimie
 	</div>
+	<button class="previous" onclick="Change(`text`)">
+		<
+	</button>
 
-	<div style="float: right;">
-		<button class="next" onclick="Next(`lesson`)">
-			>
-		</button>
-		<p class="text" id="lesson">
-			text1
-		</p>
+	<div class="text" id="One" style="float: left; background-color: rgba(102, 102, 102, 0.315); border-radius: 10px; width: 1000px; height: 500px;margin-top: 50px;margin-left: 30px;">
+		Tout d'abord la transformation physique<br>Il s'agit de réaliser un changement d'état sans changer la matière, il y a 6 changements à connaître : <br><br>Solidification S->L ; Fusion L->S ; Liquéfaction G->L ; Vaporisation L->G ; Sublimation S->G ; Condensation G->S<br><br> Il y a égalemment les termes Exothermique et Endothermique, s'ils sont Endo (Q > 0), ils reçoient de la chaleur (De Solide à Gazeux) et à l'inverse ils sont Exo
 	</div>
+	<button class="next" onclick="Change(`text`,`next`)">
+		>
+	</button>
+	<iframe hidden="true" id="video" width="1280" height="720" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/yzj6Vnu3qng" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<div id="select">
+	<select id="first" style="margin-top: 50px;margin-left: 50px;float: left; color: aqua;-webkit-text-stroke: black 0.4px;" onchange="Selector()">
+		<option value="1">Solide</option>1
+		<option value="2">Liquide</option>
+		<option value="3">Gazeux</option>
+	</select>
+	<p style="float: left;margin-left: 50px;">--></p>
+	<select id="second" style="margin-top: 50px;margin-left: 50px; color: blue;-webkit-text-stroke: black 0.4px;" onchange="Selector()">
+		<option value="1">Solide</option>
+		<option value="2">Liquide</option>
+		<option value="3">Gazeux</option>
+	</select>
+	<p id="state" style="float: right;margin-right: 200px;color: greenyellow;-webkit-text-stroke: black 0.4px;">Aucun changement d'état</p>
+	<p id="thermic" style="float: right;margin-right: 200px;color: red;-webkit-text-stroke: black 0.4px;">Rien</p>
+	<p id="example" style="margin-left: 20px;color: orange;-webkit-text-stroke: black 0.4px;">Aucun exemple</p>
+</div>
 </div>
 
 </body>
