@@ -7,11 +7,29 @@
 	<link rel="icon" type="img" href="img/icon.png">
 </head>
 <body>
-	<p>
-		salut
-	</p>
+	<script>
+		function Next(Class){
+			var txt = document.getElementById(Class)
+			if(Class == "lesson"){
+				txt.innerHTML = "text2 ; Préviens à Alexis sur Instagram que ça fonctionne bien"
+			}
+		}
+	</script>
+<img style="text-align:center;margin:auto;display:flex" src="img/Logo 2°8.png" width="500">
+<div>
+	<div class="title">
+		Physique-Chimie
+	</div>
 
-<img src="img/icon.png" width="200">
+	<div style="float: right;">
+		<button class="next" onclick="Next(`lesson`)">
+			>
+		</button>
+		<p class="text" id="lesson">
+			text1
+		</p>
+	</div>
+</div>
 
 </body>
 </html>
