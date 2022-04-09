@@ -10,16 +10,35 @@ p,div,button,select,option{
 	font-size: 30px;
 }
 
-.title{
-	float: left; 
+.matter{
+	float: left;
 	border-radius: 10px; 
 	width: 500px; 
 	height: 500px;
 	margin-top: 50px;
 	margin-left: 50px;
+	background-color: #09E5C3;
 	text-decoration: none;
 	display: flex;
-	font-size: larger;
+}
+
+.ses{
+	height: 200px;
+	width: 500px;
+	position: relative;
+	top: 120px;
+	right: 375px;
+	background: -webkit-linear-gradient(-86deg, #f85b5b 5%, #7ab9ec 53%, #e5099c 91%);
+	-webkit-background-clip: text;
+	-webkit-text-stroke: 6px transparent;
+}
+.ses:hover,.title:hover {
+	cursor: pointer;
+}
+
+.title{
+	height: 14%;
+	width: 90%;
 	text-shadow: 0 0 1em #000000, 0 0 0.2em #2b2b2b;
 	color: azure;
 	background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
