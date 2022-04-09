@@ -140,11 +140,11 @@
 		}
 	</script>
 <img style="text-align:center;margin:auto;display:flex" src="img/Logo 2°8.png" width="500">
-<div>
 	<div class="matter">
 		<div class="title" onclick=Lesson()>Physique&#8209;Chimie</div>
 		<div class="ses" onclick=Lesson(1)>Sciences Économiques et Sociales</div>
 	</div>
+	
 	<button class="previous" onclick="Change(`text`)">
 		<
 	</button>
@@ -156,22 +156,21 @@
 		>
 	</button>
 	<iframe hidden="true" id="video" width="1280" height="720" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/yzj6Vnu3qng" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	<div id="select" style="background-color: rgba(0,0,0,0.5);height: 20%">
-	<select id="first" style="margin-top: 50px;margin-left: 50px;float: left; color: aqua;-webkit-text-stroke: black 0.4px;" onchange="Selector()">
+	<div id="select" style="background-color: rgb(193, 255, 234);top: 100%;position: absolute;width: 100%;">
+	<select id="first" style="float: left;color: aqua;-webkit-text-stroke: black 0.4px;" onchange="Selector()">
 		<option value="1">Solide</option>1
 		<option value="2">Liquide</option>
 		<option value="3">Gazeux</option>
 	</select>
-	<p style="float: left;margin-left: 50px;">--></p>
-	<select id="second" style="margin-top: 50px;margin-left: 50px; color: blue;-webkit-text-stroke: black 0.4px;" onchange="Selector()">
+	<p style="float: left;margin-top: 5px;">--></p>
+	<select id="second" style="color: blue;-webkit-text-stroke: black 0.4px;" onchange="Selector()">
 		<option value="1">Solide</option>
 		<option value="2">Liquide</option>
 		<option value="3">Gazeux</option>
 	</select>
-	<p id="state" style="float: right;margin-right: 200px;color: greenyellow;-webkit-text-stroke: black 0.4px;">Aucun changement d'état</p>
-	<p id="thermic" style="float: right;margin-right: 200px;color: red;-webkit-text-stroke: black 0.4px;">Rien</p>
-	<p id="example" style="margin-left: 20px;color: orange;-webkit-text-stroke: black 0.4px;">Aucun exemple</p>
-</div>
+	<p id="state" style="margin-top: 60px;color: greenyellow;-webkit-text-stroke: black 0.4px">Aucun changement d'état</p>
+	<p id="thermic" style="color: red;-webkit-text-stroke: black 0.4px;">Rien</p>
+	<p id="example" style="color: orange;-webkit-text-stroke: black 0.4px;">Aucun exemple</p>
 </div>
 
 </body>
