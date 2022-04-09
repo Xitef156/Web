@@ -8,18 +8,23 @@
 </head>
 <body>
 	<script>
-		function Change(Class,type){
-			var Items = document.getElementsByClassName(Class)
-			var Select = document.getElementById('select')
-			var Vid = document.getElementById('video')
-			var txt = Items.item(0)
-			const json = {
+		const json = {
 				"text": {
 					"one": "Tout d'abord la transformation physique<br>Il s'agit de réaliser un changement d'état sans changer la matière, il y a 6 changements à connaître : <br><br>Solidification S->L ; Fusion L->S ; Liquéfaction G->L ; Vaporisation L->G ; Sublimation S->G ; Condensation G->S<br><br> Il y a égalemment les termes Exothermique et Endothermique, s'ils sont Endo (Q > 0), ils reçoient de la chaleur (De Solide à Gazeux) et à l'inverse ils sont Exo",
 					"two": "Puis la transformation chimique, il s'agit d'un changement, des atomes/ions à des molécules/ions que l'on peut retrouvé dans une équation bilan <br><br>Na+ (Sodium) + Cl- (Chlore) --> NaCl (Sel)<br><br>D'où le nom équation, il y doit y avoir la même chose à gauche (réactifs) et à droite (produits)<br><br> Faux : Zn + Mg --> Zn2 + Mg<br><br> il manque 1 atome de Zinc donc il faut le multiplier par 2<br>2Zn + Mg --> Zn2 + Mg",
 					"three": "Enfin, les mols, c'est une portion d'une matière. Vous pouvez pensez cela en bouteille par exemple (Il faut 100 bouteilles pour 1 bain), cela sert pour mieux représenter cette masse<br><br>mol(H) = masse(H) en g / Masse Molaire (H) en g/mol = 1,00794 g / 1<br> Masse molaire = A = Nombre de masse d'un atome = Neutrons + Protons<br><br>il se peut que des réactifs se consomment plus vite, ils se nomment 'Réactif Limitant'et les autres 'Réactif Excès' sinon on est dans des proportions stoechiométriques"
+				},
+				"ses": {
+					"one": "La sociologie permet de comprendre certains phénomènes et pour Émile Durkheim, elle doit étudier des faits sociaux<br>Il ont 3 caractéristiques :<br> Doté d'un pouvoir de contrainte (parler sa propre langue) ; Extérieur aux individus (Le français existe avant la naissance / le suicide) ; Expliqué avec d'autres faits sociaux (à cause du français...)<br><br>Elle s'explique sous une démarche scientifique (s'il fait chaud alors plus de glaces seront achetées), dans ce cas, il y a une corrélation positive car la témpérature et les ventes augmentent ensembles, si l'un baisse mais l'autre augmente alors la corrélation est négative<br>Pour le suicide, il peut être égoïste (manque d'affection), altruiste (Les Russes qui attaquent en gros, mourir à l'armée), anomique (manques de règles) et fataliste (excès de réglementation)",
+					"two": "La socialisation est le fait de vivre en société, il se base surtout sur l'apprentissage (avec l'éducation qu'a eu Victor le sauvage, il a pu vivre correctement). <br><br>Une société a besoin de Valeurs (Comme la Liberté) qui sont associés aux Normes (V = Confiance ; N = Dire la Vérité). On peut les apprendre différemment que des cours, ça peut être un jeu ou autre et ceux qui éduquent sont appelés Agent de socialisation (comme tes parents)",
+					"three": "Une société différenciée à cause du sexe, c'est simplement que des persones se sont dit (Femme -> Ménage et Home -> Boulot), c'est honteux. Les métiers ne sont pas basés sur les notes mais plutôt par choix (filles > garçons) ou bien les jouets, ils sont plus vendues pour s'amuser car tout dépends de l'éducation reçu petit.<br><br>Votre prénom n'a rien à voir (même si parfois j'ai des doutes), c'est à cause de votre éducation mais aussi celles de vos parents,etc... mais égalemment des autres facteurs comme les amis, que c'est comme ça car c'est comme ça (le fait que les filles sont meilleurs que les garçons, on peut pas le changer car certains ne changeront jamais ou bien que la cuisine n'est pas (censé) être pour les hommes (alors que c'est faux, c'est mixte))"
 				}
 			}
+		function Change(Class,type){
+			var Items = document.getElementsByClassName(`text`)
+			var Select = document.getElementById('select')
+			var Vid = document.getElementById('video')
+			var txt = Items.item(0)
 			if(Class == "text"){
 				if(type == `next`) {
 					if(txt.id == 'Two') { 
@@ -48,8 +53,28 @@
 						Select.hidden = true
 					}
 				}
-			}
+			} else if(Class == "ses") {
+				if(type == `next`) {
+					if(txt.id == 'Two') { 
+						txt.innerHTML = json.ses.three
+						txt.id = 'Three'
+					}
+					else if(txt.id == 'One') {
+						txt.innerHTML = json.ses.two
+						txt.id = 'Two'
+					}
+				} else {
+					if(txt.id == 'Two') { 
+						txt.innerHTML = json.ses.one
+						txt.id = 'One'
+					}
+					else if(txt.id == 'Three') { 
+						txt.innerHTML = json.ses.two
+						txt.id = 'Two'
+					}
+				}
 		}
+	}
 		function Selector(){
 			var state = document.getElementById('state')
 			var thermic = document.getElementById('thermic')
@@ -91,11 +116,34 @@
 				example.innerHTML = "Aucun exemple"
 			}
 		}
+		function Lesson(x) {
+			var button1 = document.getElementsByClassName('previous').item(0)
+			var button2 = document.getElementsByClassName('next').item(0)
+			var txt = document.getElementsByClassName('text').item(0)
+			if(x == '1'){
+			document.getElementById('select').hidden = true
+			document.getElementById('video').hidden = true
+				txt.id = 'One'
+				txt.innerHTML = json.ses.one
+				txt.style.color = 'red'
+				button1.setAttribute("onClick", "Change(`ses`)")
+				button2.setAttribute("onClick", "Change(`ses`,`next`)")
+			} else {
+			document.getElementById('select').hidden = false
+			document.getElementById('video').hidden = true
+				txt.id = 'One'
+				txt.innerHTML = json.text.one
+				txt.style.color = '#5900ff'
+				button1.setAttribute("onClick", "Change(`text`)")
+				button2.setAttribute("onClick", "Change(`text`,`next`)")
+			}
+		}
 	</script>
 <img style="text-align:center;margin:auto;display:flex" src="img/Logo 2°8.png" width="500">
 <div>
-	<div class="title" id="test">
-		Physique-Chimie
+	<div class="matter">
+		<div class="title" onclick=Lesson()>Physique&#8209;Chimie</div>
+		<div class="ses" onclick=Lesson(1)>Sciences Économiques et Sociales</div>
 	</div>
 	<button class="previous" onclick="Change(`text`)">
 		<
