@@ -12,7 +12,8 @@
 				"text": {
 					"one": "Tout d'abord la transformation physique<br>Il s'agit de réaliser un changement d'état sans changer la matière, il y a 6 changements à connaître : <br><br>Solidification S->L ; Fusion L->S ; Liquéfaction G->L ; Vaporisation L->G ; Sublimation S->G ; Condensation G->S<br><br> Il y a égalemment les termes Exothermique et Endothermique, s'ils sont Endo (Q > 0), ils reçoient de la chaleur (De Solide à Gazeux) et à l'inverse ils sont Exo",
 					"two": "Puis la transformation chimique, il s'agit d'un changement, des atomes/ions à des molécules/ions que l'on peut retrouvé dans une équation bilan <br><br>Na+ (Sodium) + Cl- (Chlore) --> NaCl (Sel)<br><br>D'où le nom équation, il y doit y avoir la même chose à gauche (réactifs) et à droite (produits)<br><br> Faux : Zn + Mg --> Zn2 + Mg<br><br> il manque 1 atome de Zinc donc il faut le multiplier par 2<br>2Zn + Mg --> Zn2 + Mg",
-					"three": "Enfin, les mols, c'est une portion d'une matière. Vous pouvez pensez cela en bouteille par exemple (Il faut 100 bouteilles pour 1 bain), cela sert pour mieux représenter cette masse<br><br>mol(H) = masse(H) en g / Masse Molaire (H) en g/mol = 1,00794 g / 1<br> Masse molaire = A = Nombre de masse d'un atome = Neutrons + Protons<br><br>il se peut que des réactifs se consomment plus vite, ils se nomment 'Réactif Limitant'et les autres 'Réactif Excès' sinon on est dans des proportions stoechiométriques"
+					"three": "Ensuite, les mols, c'est une portion d'une matière. Vous pouvez pensez cela en bouteille par exemple (Il faut 100 bouteilles pour 1 bain), cela sert pour mieux représenter cette masse<br><br>mol(H) = masse(H) en g / Masse Molaire (H) en g/mol = 1,00794 g / 1<br> Masse molaire = A = Nombre de masse d'un atome = Neutrons + Protons<br><br>il se peut que des réactifs se consomment plus vite, ils se nomment 'Réactif Limitant'et les autres 'Réactif Excès' sinon on est dans des proportions stoechiométriques",
+					"four": "Enfin, pour vérifier sa réaction chimique, on test avec les réactifs (à gauche, sous forme solide ou liquide, gazeux un peu compliqué), puis la purification (la séparation des réactifs) et pour finir, les identifier<br><br>Pour cela, on réalise une chromatographie sur couche mince (CCM), en versant des gouttes à l'endroit prévu, le liquide se propagera en ligne droite et avec un appareil (chromatographe) permet d'avoir des points, plus il y en a plus il y a de substances différentes, puis on prends le niveau (la hauteur) de chaque point et on peut en déterminé qu'elles sont ces substances"
 				},
 				"ses": {
 					"one": "La sociologie permet de comprendre certains phénomènes et pour Émile Durkheim, elle doit étudier des faits sociaux<br>Il ont 3 caractéristiques :<br> Doté d'un pouvoir de contrainte (parler sa propre langue) ; Extérieur aux individus (Le français existe avant la naissance / le suicide) ; Expliqué avec d'autres faits sociaux (à cause du français...)<br><br>Elle s'explique sous une démarche scientifique (s'il fait chaud alors plus de glaces seront achetées), dans ce cas, il y a une corrélation positive car la témpérature et les ventes augmentent ensembles, si l'un baisse mais l'autre augmente alors la corrélation est négative<br>Pour le suicide, il peut être égoïste (manque d'affection), altruiste (Les Russes qui attaquent en gros, mourir à l'armée), anomique (manques de règles) et fataliste (excès de réglementation)",
@@ -25,15 +26,25 @@
 			var Select = document.getElementById('select')
 			var Vid = document.getElementById('video')
 			var Video = document.getElementById('Video')
+			var VIDEO = document.getElementById('VIDEO')
 			var txt = Items.item(0)
 			if(Class == "text"){
 				if(type == `next`) {
-					if(txt.id == 'Two') { 
+					if(txt.id == 'Three') {
+						txt.innerHTML = json.text.four
+						txt.id = 'Four'
+						Vid.hidden = true
+						Video.hidden = true
+						Select.hidden = true
+						VIDEO.hidden = false
+					}
+					else if(txt.id == 'Two') { 
 						txt.innerHTML = json.text.three
 						txt.id = 'Three'
 						Vid.hidden = false
 						Video.hidden = true
 						Select.hidden = true
+						VIDEO.hidden = true
 					}
 					else if(txt.id == 'One') {
 						txt.innerHTML = json.text.two
@@ -41,14 +52,16 @@
 						Vid.hidden = true
 						Video.hidden = false
 						Select.hidden = true
+						VIDEO.hidden = true
 					}
 				} else {
 					if(txt.id == 'Two') { 
 						txt.innerHTML = json.text.one
 						txt.id = 'One'
 						Vid.hidden = true
-						Select.hidden = false
 						Video.hidden = true
+						Select.hidden = false
+						VIDEO.hidden = true
 					}
 					else if(txt.id == 'Three') { 
 						txt.innerHTML = json.text.two
@@ -56,6 +69,15 @@
 						Vid.hidden = true
 						Video.hidden = false
 						Select.hidden = true
+						VIDEO.hidden = true
+					}
+					else if(txt.id == 'Four') { 
+						txt.innerHTML = json.text.three
+						txt.id = 'Three'
+						Vid.hidden = false
+						Video.hidden = true
+						Select.hidden = true
+						VIDEO.hidden = true
 					}
 				}
 			} else if(Class == "ses") {
@@ -166,7 +188,8 @@
 </div>
 	<iframe hidden="true" id="Video" width="1280" height="720" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/VZVBS4OwwlE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<iframe hidden="true" id="video" width="1280" height="720" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/yzj6Vnu3qng" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	<div id="select" style="margin-top: auto;position: relative;width: 50%;height: 50%;">
+	<iframe hidden="true" id="VIDEO" width="1005" height="754"  style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/gjrnyY1rL-M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<div id="select" style="margin-left:8%;position: relative;width: 50%;height: 50%;">
 	<select id="first" style="float: left;color: aqua;-webkit-text-stroke: black 0.4px;" onchange="Selector()">
 		<option value="1">Solide</option>1
 		<option value="2">Liquide</option>
