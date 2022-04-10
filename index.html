@@ -24,6 +24,7 @@
 			var Items = document.getElementsByClassName(`text`)
 			var Select = document.getElementById('select')
 			var Vid = document.getElementById('video')
+			var Video = document.getElementById('Video')
 			var txt = Items.item(0)
 			if(Class == "text"){
 				if(type == `next`) {
@@ -31,12 +32,14 @@
 						txt.innerHTML = json.text.three
 						txt.id = 'Three'
 						Vid.hidden = false
+						Video.hidden = true
 						Select.hidden = true
 					}
 					else if(txt.id == 'One') {
 						txt.innerHTML = json.text.two
 						txt.id = 'Two'
 						Vid.hidden = true
+						Video.hidden = false
 						Select.hidden = true
 					}
 				} else {
@@ -45,11 +48,13 @@
 						txt.id = 'One'
 						Vid.hidden = true
 						Select.hidden = false
+						Video.hidden = true
 					}
 					else if(txt.id == 'Three') { 
 						txt.innerHTML = json.text.two
 						txt.id = 'Two'
 						Vid.hidden = true
+						Video.hidden = false
 						Select.hidden = true
 					}
 				}
@@ -120,9 +125,10 @@
 			var button1 = document.getElementsByClassName('previous').item(0)
 			var button2 = document.getElementsByClassName('next').item(0)
 			var txt = document.getElementsByClassName('text').item(0)
+			document.getElementById('video').hidden = true
+			document.getElementById('Video').hidden = true
 			if(x == '1'){
 			document.getElementById('select').hidden = true
-			document.getElementById('video').hidden = true
 				txt.id = 'One'
 				txt.innerHTML = json.ses.one
 				txt.style.color = 'red'
@@ -130,7 +136,6 @@
 				button2.setAttribute("onClick", "Change(`ses`,`next`)")
 			} else {
 			document.getElementById('select').hidden = false
-			document.getElementById('video').hidden = true
 				txt.id = 'One'
 				txt.innerHTML = json.text.one
 				txt.style.color = '#5900ff'
@@ -140,21 +145,26 @@
 		}
 	</script>
 <img style="text-align:center;margin:auto;display:flex" src="img/Logo 2°8.png" width="500">
+<div>
 	<div class="matter">
 		<div class="title" onclick=Lesson()>Physique&#8209;Chimie</div>
 		<div class="ses" onclick=Lesson(1)>Sciences Économiques et Sociales</div>
 	</div>
+	<div>
 	
 	<button class="previous" onclick="Change(`text`)">
 		<
 	</button>
 
-	<div class="text" id="One" style="float: left; background-color: rgba(102, 102, 102, 0.315); border-radius: 10px; width: 1000px; height: 500px;margin-top: 50px;margin-left: 30px;">
+	<div class="text" id="One" style="float: left; background-color: rgba(102, 102, 102, 0.315); border-radius: 10px; width: 90%;height: 100%;;margin-top: 50px;margin-left: 30px;box-shadow: #000000 0 0 0.3em;">
 		Tout d'abord la transformation physique<br>Il s'agit de réaliser un changement d'état sans changer la matière, il y a 6 changements à connaître : <br><br>Solidification S->L ; Fusion L->S ; Liquéfaction G->L ; Vaporisation L->G ; Sublimation S->G ; Condensation G->S<br><br> Il y a égalemment les termes Exothermique et Endothermique, s'ils sont Endo (Q > 0), ils reçoient de la chaleur (De Solide à Gazeux) et à l'inverse ils sont Exo
 	</div>
 	<button class="next" onclick="Change(`text`,`next`)">
 		>
 	</button>
+</div>
+</div>
+	<iframe hidden="true" id="Video" width="1280" height="720" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/VZVBS4OwwlE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<iframe hidden="true" id="video" width="1280" height="720" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/yzj6Vnu3qng" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<div id="select" style="background-color: rgb(193, 255, 234);top: 100%;position: absolute;width: 100%;">
 	<select id="first" style="float: left;color: aqua;-webkit-text-stroke: black 0.4px;" onchange="Selector()">
