@@ -49,17 +49,27 @@ select{
 	box-shadow: #00000036 0 0 0.3em;
 }
 
-.ses{
-	color: #dfdfdf;
-	height: 10%;
+.math{
+	height: 3%;
 	width: 50%;
 	position: relative;
-	left: 17%;
+	left: 8%;
+	background: -webkit-linear-gradient(-86deg, #ff0000 5%, #ffffff 53%, #6809e5 91%);
+	-webkit-background-clip: text;
+	-webkit-text-stroke: 6px transparent;
+}
+
+.ses{
+	color: #dfdfdf;
+	height: 3%;
+	width: 50%;
+	position: relative;
+	left: 5%;
 	background: -webkit-linear-gradient(-86deg, #f85b5b 5%, #7ab9ec 53%, #e5099c 91%);
 	-webkit-background-clip: text;
 	-webkit-text-stroke: 6px transparent;
 }
-.ses:hover,.title:hover {
+.ses:hover,.title:hover,.math:hover {
 	cursor: pointer;
 }
 
