@@ -22,7 +22,7 @@
 				},
 				"math": {
 					"one": "Une fonction commence par son nom puis par des parenthèses, ex : f(x) f est le nom ; elle a un paramètre qui est x (ce que l'on rentre dedans). Il y a plusieurs types de fonctions comme affine, linéaire et quelconque.<br>f(x) = ax + b (affine) ; g(x) = b (linéaire mais affine car a = 0) ; h(x) = x² + x (quelconque donc les autres fonctions)<br>Une focntion comporte des images et des antécedents, si f(x) = 2x + 1 et que l'on choisit 1, on remplace x par 1 ce qui donne 2(1) + 1 = 2 + 1 = 3 donc 3 est l'image de 1 par f mais 1 est UN antécédent de 3 par f (une image peut avoir plusieurs antécédent)<br>Si -1 par f donne 3 alors f est une fonction pair et si -1 donne -3 par f alors elle est impair, testons : 2(-1) + 1 = -2 + 1 = -1 aucun donc f est juste une fonction affine où a = 2 et b = 1.<br>Dans un graphique, une fonction affine ressemble à une diagonale (où ax + b = mx + p = y équation de droite) et une linéaire fait une ligne horizontale.",
-					"two": "two"
+					"two": "Pour des fonctions on peut créer un tableau de signes pour connaître lorsque le signe du résultat (donc l'image), pour cela un vérifie quel(s) antécédent(s) vaut 0 (on fait une équation). Si i(x) = x + 2 alors on calcule x + 2 = 0 donc x = -2, on sait que si x vaut -2 alors l'image est 0.<br> Comme i est une fonction affine (ax + b) est que a est positif alors on place -2 pour le 0 barré est avant le - puis après le +<br><br>Lorsque l'on a une courbe, on peut noté aussi lorsque la courbe de la fonction descends ou remonte, pour cela on note les différents antécédents x et leurs images en sessous puis on met des flèches pous dire si elle monte ou non. Pour rappel un 0/ (zéro barré) signifie que la fonction vaut 0 et || signifie que la valeur (donc l'antécédent) est interdit (ne donne pas d'image comme diviser par 0)"
 					}
 			}
 		function Change(Class,type){
@@ -31,8 +31,12 @@
 			var Vid = document.getElementById('video')
 			var Video = document.getElementById('Video')
 			var VIDEO = document.getElementById('VIDEO')
+			var VIDeo = document.getElementById('VIDeo')
+			var VIdeo = document.getElementById('VIdeo')
 			var txt = Items.item(0)
 			if(Class == "text"){
+						VIdeo.hidden = true
+						VIDeo.hidden = true
 				if(type == `next`) {
 					if(txt.id == 'Three') {
 						txt.innerHTML = json.text.four
@@ -85,6 +89,8 @@
 					}
 				}
 			} else if(Class == "ses") {
+						VIdeo.hidden = true
+						VIDeo.hidden = true
 				if(type == `next`) {
 					if(txt.id == 'Two') { 
 						txt.innerHTML = json.ses.three
@@ -106,9 +112,13 @@
 				}
 		} else {
 				if(txt.id == 'One') {
+						VIdeo.hidden = false
+						VIDeo.hidden = true
 						txt.innerHTML = json.math.two
 						txt.id = 'Two'
 				} else {
+						VIdeo.hidden = true
+						VIDeo.hidden = false
 						txt.innerHTML = json.math.one
 						txt.id = 'One'
 					}
@@ -159,29 +169,34 @@
 			var button1 = document.getElementsByClassName('previous').item(0)
 			var button2 = document.getElementsByClassName('next').item(0)
 			var txt = document.getElementsByClassName('text').item(0)
+			var Video = document.getElementById('Video')
+			var VIDEO = document.getElementById('VIDEO')
+			var VIDeo = document.getElementById('VIDeo')
+			var VIdeo = document.getElementById('VIdeo')
 			document.getElementById('video').hidden = true
-			document.getElementById('Video').hidden = true
+			Video.hidden = true
 			if(x == 1){
 			document.getElementById('select').hidden = true
 				txt.innerHTML = json.ses.one
 			txt.id = 'One'
 				txt.style.color = 'red'
-				button1.setAttribute(onclick, Change(`ses`))
-				button2.setAttribute(onclick, Change(`ses`,`next`))
+				button1.setAttribute("onClick", "Change(`ses`)")
+				button2.setAttribute("onClick", "Change(`ses`,`next`)")
 			} else if(x == null){
 			document.getElementById('select').hidden = false
 				txt.innerHTML = json.text.one
 			txt.id = 'One'
 				txt.style.color = '#5900ff'
-				button1.setAttribute(onclick, Change(`text`))
-				button2.setAttribute(onclick, Change(`text`,`next`))
+				button1.setAttribute("onClick", "Change(`text`)")
+				button2.setAttribute("onClick", "Change(`text`,`next`)")
 			} else {
 			document.getElementById('select').hidden = true
+						VIdeo.hidden = false
 				txt.innerHTML = json.math.one
 			txt.id = 'One'
 				txt.style.color = '#d55889'
-				button1.setAttribute(onclick, Change(`math`))
-				button2.setAttribute(onclick, Change(`math`,`next`))
+				button1.setAttribute("onClick", "Change(`math`)")
+				button2.setAttribute("onClick", "Change(`math`,`next`)")
 			}
 		}
 	</script>
@@ -206,6 +221,8 @@
 	</button>
 </div>
 </div>
+	<iframe hidden="true" id="VIDeo" width="1271" height="715" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/0Hj7XbNhNI4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe hidden="true" id="VIdeo" width="953" height="715" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/mhZqr-qAx5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<iframe hidden="true" id="Video" width="1280" height="720" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/VZVBS4OwwlE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<iframe hidden="true" id="video" width="1280" height="720" style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/yzj6Vnu3qng" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<iframe hidden="true" id="VIDEO" width="1005" height="754"  style="margin-top: 50px;margin-left: 18%;" src="https://www.youtube.com/embed/gjrnyY1rL-M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
